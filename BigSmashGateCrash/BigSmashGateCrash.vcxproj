@@ -40,13 +40,13 @@
   <PropertyGroup Label="UserMacros" />
   <PropertyGroup Condition="'$(Configuration)|$(Platform)'=='Debug|Win32'">
     <OutDir>$(SolutionDir)..\WorkDir\</OutDir>
-    <IncludePath>J:\raries\DirectX\Include;$(IncludePath)</IncludePath>
+    <IncludePath>J:\raries\irectX\Include;$(IncludePath)</IncludePath>
   </PropertyGroup>
-  <PropertyGroup Condition="'$(Configuration)|$(Platform)'=='Release|Win32'">
+  <PropertyGroup Condition  <TargetName>$(ProjectName)_$(Configuration)</TargetNameition="'$(Configuration)|$(Platform)'=='Release|Win32'">
     <OutDir>$(SolutionDir)..\WorkDir\</OutDir>
-    <IncludePath>J:\Libraries\DirectX\Include;$(IncludePath)</IncludePath>
+    <IncludePath>J:\LibrWorkDirirectX\Include;$(IncludePath)</IncludePath>
   </PropertyGroup>
-  <ItemDefinitionGroup Condition="'$(Configuration)|$(Platform)'=='Debug|Win32'">
+  <PropertyGroup Condition="'$(Configuration)|$|$(Platform)'=='Debug|Win32'">
     <ClCompile>
       <WarningLevel>Level3</WarningLevel>
       <Optimization>Disabled</Optimization>
