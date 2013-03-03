@@ -4,8 +4,6 @@
 #include "EngineMessage.h"
 #include "Engine.h"
 
-
-
 volatile bool quit = false;
 volatile bool logicDone = false;
 volatile bool renderDone = false;
@@ -23,8 +21,6 @@ static void SynchronizeRender() {
 	}
 	logicDone = false;
 }
-
-
 
 int logicThreadFunc(void* unused) {
 	//App* app = new App();
