@@ -39,12 +39,12 @@
   </ImportGroup>
   <PropertyGroup Label="UserMacros" />
   <PropertyGroup Condition="'$(Configuration)|$(Platform)'=='Debug|Win32'">
-    <OutDir>$(SolutionDir)..\WorkDir\</OutDir>
+    <OutDir>$(SolutionDir)WorkDir\</OutDir>
     <IncludePath>J:\ies\DirectX\Include;$(IncludePath)</IncludePath>
     <TargetName>$(ProjectName)_$(Configuration)</TargetName>
   </PropertyGroup>
   <PropertyGroup Condition="'$(Configuration)|$(Platform)'=='Release|Win32'">
-    <OutDir>$(SolutionDir)..\WorkDir\</OutDir>
+    <OutDir>$(SolutionDir)WorkDir\</OutDir>
     <IncludePath>J:\Libras\DirectX\Include;$(IncludePath)</IncludePath>
     <TargetName>$(ProjectName)_$(Configuration)</TargetName>
   </PropertyGroup>
