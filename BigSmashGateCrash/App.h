@@ -1,9 +1,6 @@
 #pragma once
 
-#include "Map.h"
-#include "Sprite"
-
-class App
+#include "Mapclass App
 {
 public:
 	App(void);
@@ -13,5 +10,4 @@ public:
 
 private:
 	Map myMap;
-};	Sprite myTest;
-};
+};	Sprite myTest;};

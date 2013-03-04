@@ -10,6 +10,9 @@ public:
 	~Map( void );
 
 private:
-	static const unsigned int myNumberOfChunks = 1;//5;
+	s	void Render();
+
+private:
+	static const unsigned int myNumberOfChunks = 5;
 	std::array< std::array< Chunk, myNumberOfChunks >, myNumberOfChunks > myChunks;
 };
