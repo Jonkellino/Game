@@ -1,5 +1,7 @@
 #pragma once
 
+#include "Map.h"
+
 class App
 {
 public:
@@ -7,4 +9,7 @@ public:
 	~App(void);
 
 	bool Logic();//Should get DeltaTime
+
+private:
+	Map myMap;
 };

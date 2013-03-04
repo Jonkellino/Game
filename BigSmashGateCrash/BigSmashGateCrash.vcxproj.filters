@@ -5,15 +5,31 @@
     <ClCompile Include="App.cpp">
       <Filter>Application</Filter>
     </ClCompile>
+  </ItemG  <ClCompile Include="Map.cpp">
+      <Filter>World</Filter>
+    </ClCompile>
+    <ClCompile Include="Chunk.cpp">
+      <Filter>Worldter>
+    </ClCompile>
   </ItemGroup>
   <ItemGroup>
     <Filter Include="Application">
       <UniqueIdentifier>{5b360779-947a-424d-8ce1-cdb692979eaf}</UniqueIdentifier>
     </Filter>
+  </ItemGroup>  <Filter Include="World">
+      <UniqueIdentifier>{8f147232-6a37-45f2-888f-714893194375dentifier>
+    </Filter>
   </ItemGroup>
   <ItemGroup>
     <ClInclude Include="App.h">
       <Filter>Application</Filter>
+    </ClInclude>
+  </ItemGroup>
+</Pr  <ClInclude Include="Map.h">
+      <Filter>World</Filter>
+    </ClInclude>
+    <ClInclude Include="Chunk.h">
+      <Filter>World</Filter>
     </ClInclude>
   </ItemGroup>
 </Project>
