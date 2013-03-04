@@ -3,6 +3,7 @@
 #include "SDL\SDL_thread.h"
 #include "EngineMessage.h"
 #include "Engine.h"
+#include "App.h"
 
 volatile bool quit = false;
 volatile bool logicDone = false;
@@ -23,13 +24,13 @@ static void SynchronizeRender() {
 }
 
 int logicThreadFunc(void* unused) {
-	//App* app = new App();
+	App* app = new App();
 	while(true) {
-		//quit = app->Logic();
+		quit = app->Logic();
 		logicDone = true;
 		SynchronizeLogic();
 	}
-	//delete app;
+	delete app;
 	quit = true;
 	return 0;
 }
