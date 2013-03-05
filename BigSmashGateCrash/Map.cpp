@@ -1,4 +1,5 @@
 #include "Map.h"
+#include "Chunk.h"
 
 Map::CommonTileData Map::ourTileData;
 Map::CommonChunkData Map::ourChunkData;
@@ -6,11 +7,17 @@ Map::CommonChunkData Map::ourChunkData;
 Map::Map()
 {
 	ourTileData.mySize = Vector2f( 100.0f, 50.0f );
-	//ourChunkData.mySize = ourTileData.mySize * ned int yIndex = 0; yIndex < myNumberOfChunks; yIndex++ )
+	//ourChuourChunkData.myNumberOfTiles = Chunk::myNumberOfTiles;
+	ourChunkData.mySize = ourTileData.mySize * ourChunkData.myNumberOfTiles;x = 0; yIndex < myNumberOfChunks; yIndex++ )
 	{
 		for( unsigned int xIndex = 0; xIndex < myNumberOfChunks; xIndex++ )
 		{
-			//myChunmyChunks[xIndex][yIndex].Render();myIndex = Vector2i( xIndex, yIndex );
+			//myChunmyChunks[xIndex][yIndex].Render();
+		}
+	}
+}
+
+/*= Vector2i( xIndex, yIndex );
 		}
 	}
 }

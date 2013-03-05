@@ -24,9 +24,11 @@ static struct CommonTileData
 
 static struct CommonChunkData
 {
+	Vector2funsigned int myNumberOfTiles;
 	Vector2f mySize;
-	unsigned int myNumberOfTilesHorizontal;
-	unsigned int myNumberOfTilesVertical;
-} ourChunkDataatic const unsigned int myNumberOfChunks = 1;
+} ourChunkData;
+
+private:
+	static const unsigned int myNumberOfChunks = 4;
 	std::array< std::array< Chunk, myNumberOfChunks >, myNumberOfChunks > myChunks;
 };

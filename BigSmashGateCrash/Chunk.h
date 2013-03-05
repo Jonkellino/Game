@@ -12,10 +12,11 @@ public:
 	void Render();
 
 public: //ganna be refaktorerat någon dag
-	Vector2i myIndexte:
-	static const unsigned int myNumberOfTilesHorizontal = 3;
-	static const unsigned1;
-	static const unsigned int myNumberOfTilesVertical = 1std::array< unsigned int, myNumberOfTilesHorizontal >, myNumberOfTilesVertical * 2 > myTiles;
+	Vector2i myIndstatic const unsigned int myNumberOfTiles = 4;
+	Vector2i myIndex;
+
+private:
+	std::array< std::array< unsigned int, myNumberOfTiles >, myNumberOfTiles * 2 > myTiles;
 	
 	Sprite myTest;
 };

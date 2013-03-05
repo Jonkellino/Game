@@ -1,4 +1,5 @@
 #include "Chunk.h"
+#include "Map.h"
 
 Chunk::Chunk(void)
 {
@@ -10,15 +11,12 @@ Chunk::Chunk(void)
 void Chunk::Render()
 {
 	float xOffset = 0;
-	for( unsigned int yIndex = 0; yIndex < myNumberOfTilesVertical * 2; yIndex++ )
+	for( unsigned int yIndex = 0; yIndex < myNumberOfTilesVertical * 2; yI * 2; yIndex++ )
 	{
-		for( unsigned int xIndex = 0; xIndex < myNumberOfTilesHorizontal; xIndex++ )
-		{
-			myTest.Data().pos.x = xIndex * 100 + xOffset;
+		for( unsigned int xIndex = 0; xIndex < myNumberOfTiles		myTest.Data().pos.x = xIndex * 100 + xOffset;
 			myTest.Data().pos.y = yIndex * ( 50 / 2 );
-			myTest.Data().pos.x += 62.5 + ( ( 300 + 25 ) 62.5 + ( ( 300 + 25 ) * myIndex.x );
-			myTest.Data().pos.y += 125 +dex.y );
-			myTest.Render();
+			myTest.Data().pos.x += 62.5 + ( ( 300 + 25 ) 50 + ( ( Map::ourChunkData.mySize.x + 25 ) * myIndex.x );
+			myTest.Data().pos.y += 25 + ( ( Map::ourChunkData.mySize.y			myTest.Render();
 		}
 
 		if( xOffset == 0 )
