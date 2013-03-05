@@ -11,6 +11,9 @@
     <ClCompile Include="Chunk.cpp">
       <Filter>Worldter>
     </ClCompile>
+  </ItemGroup  <ClCompile Include="Camera.cpp">
+      <Filter>Player
+    </ClCompile>
   </ItemGroup>
   <ItemGroup>
     <Filter Include="Application">
@@ -18,6 +21,10 @@
     </Filter>
   </ItemGroup>  <Filter Include="World">
       <UniqueIdentifier>{8f147232-6a37-45f2-888f-714893194375dentifier>
+    </Filter>
+  </ItemGroup>
+  <I  <Filter Include="Player">
+      <UniqueIdentifier>{0024f614-0998-4c45-924e-7889d8da28a7fier>
     </Filter>
   </ItemGroup>
   <ItemGroup>
@@ -30,6 +37,9 @@
     </ClInclude>
     <ClInclude Include="Chunk.h">
       <Filter>World</Filter>
+    </ClInclude>
+  </ItemGroup  <ClInclude Include="Camera.h">
+      <Filter>Player</Filter>
     </ClInclude>
   </ItemGroup>
 </Project>

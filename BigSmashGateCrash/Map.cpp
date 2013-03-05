@@ -24,3 +24,12 @@ void Map::Render({
 		}
 	}
 }
+
+/*
+std::vector< Chunk& > Map::GetChunksInside( Vector2f aTopLeft, Vector2f aBottomRight )
+{
+	std::vector< Chunk& > returnList;
+
+	return returnList;
+}
+*/

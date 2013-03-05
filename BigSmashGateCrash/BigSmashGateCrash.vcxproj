@@ -82,12 +82,14 @@
     <ClCompile Include="main.cpp" />
   </ItemGroup>
   <Import Project="$(VCTargetsPath)\Microsoft.Cpp.tarApp.cpp" />
+    <ClCompile Include="mCamera.cpp" />
     <ClCompile Include="mChunk.cpp" />
     <ClCompile Include="main.cpp" />
     <ClCompile Include="Map.cpp" />
   </ItemGroup>
   <ItemGroup>
     <ClInclude Include="App.h" />
+    <ClInclude Include="Chunk.hamera>
     <ClInclude Include="Chunk.h" />
     <ClInclude Include="Ma  <ImportGroup Label="ExtensionTargets">
   </ImportGroup>
