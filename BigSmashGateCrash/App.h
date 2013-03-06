@@ -12,7 +12,8 @@ public:
 	bool Logic(const float aDelta);
 
 private:
-	int myPrevMSSinceInit;
+	Vector2f myCameraPosition;
+
 	Player myPlayer;
 	Map myMap;
 };

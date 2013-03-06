@@ -11,10 +11,11 @@ Player::~Player(void)
 {
 }
 
-void Player::Update( const float aDelta )
+void Player::Update( const float aDelta, Vector2f& aCameraPosition )
 {
 	Movement(aDelta);
-	mySprite.Data().pos = myPosition;
+	aCameraPosition = myPosition;
+	mySprite.Data().pos = Vector2i(1680/2, 1024/2);
 	mySprite.Data().depth = -1.0f;
 }
 

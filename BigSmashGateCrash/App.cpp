@@ -4,7 +4,6 @@
 
 App::App(void)
 {
-	myPrevMSSinceInit = 0;
 }
 
 App::~App(void)
@@ -18,8 +17,8 @@ bool App::Logic(const float aDelta)
 	{
 		return true;
 	}
-	myPlayer.Update( aDelta );
-	myMap.Render();
+	myPlayer.Update( aDelta, myCameraPosition );
+	myMap.Render(myCameraPosition);
 	myPlayer.Render();
 	return false;
 }

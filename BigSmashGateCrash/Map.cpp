@@ -23,13 +23,13 @@ Map::~Map()
 {
 }
 
-void Map::Render()
+void Map::Render(const Vector2f& aCameraPosition)
 {
 	for( unsigned int yIndex = 0; yIndex < myNumberOfChunks; yIndex++ )
 	{
 		for( unsigned int xIndex = 0; xIndex < myNumberOfChunks; xIndex++ )
 		{
-			myChunks[xIndex][yIndex].Render();
+			myChunks[xIndex][yIndex].Render(aCameraPosition);
 		}
 	}
 }

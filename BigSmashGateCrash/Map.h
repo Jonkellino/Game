@@ -10,7 +10,7 @@ public:
 	Map();
 	~Map();
 
-	void Render();
+	void Render(const Vector2f& aCameraPosition);
 
 //private:
 //	std::vector< Chunk& > GetChunksInside( Vector2f aTopLeft, Vector2f aBottomRight );

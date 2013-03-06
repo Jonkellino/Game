@@ -9,7 +9,7 @@ public:
 	~Camera(void);
 
 public:
-	const Vector2f const GetPosition(){ return myPosition; }
+	const Vector2f GetPosition(){ return myPosition; }
 	void SetPosition( const Vector2f& aPosition ){ myPosition = aPosition; }
 
 private:

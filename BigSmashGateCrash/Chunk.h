@@ -9,7 +9,7 @@ public:
 	Chunk(void);
 	~Chunk(void);
 
-	void Render();
+	void Render(const Vector2f& aCameraPosition);
 
 public: //ganna be refaktorerat någon dag
 	static const unsigned int myNumberOfTilesHorizontal = 15;
@@ -19,5 +19,5 @@ public: //ganna be refaktorerat någon dag
 private:
 	std::array< std::array< unsigned int, myNumberOfTilesHorizontal >, myNumberOfTilesVertical * 2 > myTiles;
 	
-	Sprite myTest;
+	Sprite mySprite;
 };
