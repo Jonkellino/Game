@@ -7,11 +7,12 @@ class Player
 public:
 	Player(void);
 	~Player(void);
-
-private:
-		void Update( const float aDelta );
+	 
+	void Update( const float aDelta );
 	void Render();
 private:
+
+	void Movement(const float aDelta);
 	Vector2f myPosition;
 	Sprite mySprite;
 };

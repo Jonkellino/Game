@@ -4,6 +4,7 @@
 #include "EngineMessage.h"
 #include "Engine.h"
 #include "App.h"
+#include "Keyboard.h"
 
 volatile bool quit = false;
 volatile bool logicDone = false;
@@ -24,10 +25,13 @@ static void SynchronizeRender() {
 }
 
 int logicThreadFunc(void* unused) {
+
+	Keyboard::Create();
+	KeyboardInput->Update();
 	App* app = new App();
-	const int ticks = SDL_GetTicks();
 	int prevMSSinceInit = 0;
 	while(true) {
+		const int ticks = SDL_GetTicks();
 		const float delta = static_cast<float>(ticks - prevMSSinceInit) * 0.001f;
 		quit = app->Logic(delta);
 		prevMSSinceInit = ticks;
@@ -35,6 +39,7 @@ int logicThreadFunc(void* unused) {
 		SynchronizeLogic();
 	}
 	delete app;
+	Keyboard::Destroy();
 	quit = true;
 	return 0;
 }
@@ -46,7 +51,6 @@ int main( int argc, char* argv[]) {
 	while(!quit) {
 		Engine::GetInstance()->Render();
 		renderDone = true;
-		SynchronizeRender();
 		while(SDL_PollEvent(&sdlEvent)) {
 			switch(sdlEvent.type) {
 			case SDL_WINDOWEVENT:
@@ -57,13 +61,13 @@ int main( int argc, char* argv[]) {
 					message.windowSizeChange.myWindowSize[1] = sdlEvent.window.data2;
 					Engine::GetInstance()->NotifyMessage(message);
 					break;
-				}
+												   }
 
 				case SDL_WINDOWEVENT_CLOSE:  {
 					sdlEvent.type = SDL_QUIT;
 					SDL_PushEvent(&sdlEvent);
 					break;
-				}
+											 }
 				}
 				break;
 			case SDL_QUIT:
@@ -71,6 +75,8 @@ int main( int argc, char* argv[]) {
 				break;
 			}
 		}
+		SynchronizeRender();
+
 	}
 	return 0;
 }
