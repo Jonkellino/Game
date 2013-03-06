@@ -23,7 +23,7 @@ static struct CommonTileData
 
 static struct CommonChunkData
 {
-	unsigned int myNumberOfTiles;
+	Vector2i myNumberOfTiles;
 	Vector2f mySize;
 } ourChunkData;
 

@@ -7,7 +7,8 @@ Map::CommonChunkData Map::ourChunkData;
 Map::Map()
 {
 	ourTileData.mySize = Vector2f( 100.0f, 50.0f );
-	ourChunkData.myNumberOfTiles = Chunk::myNumberOfTiles;
+	ourChunkData.myNumberOfTiles.x = Chunk::myNumberOfTilesHorizontal;
+	ourChunkData.myNumberOfTiles.y = Chunk::myNumberOfTilesVertical;
 	ourChunkData.mySize = ourTileData.mySize * ourChunkData.myNumberOfTiles;
 	for( unsigned int yIndex = 0; yIndex < myNumberOfChunks; yIndex++ )
 	{

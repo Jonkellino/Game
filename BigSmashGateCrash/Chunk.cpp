@@ -13,9 +13,9 @@ Chunk::~Chunk(void)
 void Chunk::Render()
 {
 	float xOffset = 0;
-	for( unsigned int yIndex = 0; yIndex < myNumberOfTiles * 2; yIndex++ )
+	for( unsigned int yIndex = 0; yIndex < myNumberOfTilesVertical * 2; yIndex++ )
 	{
-		for( unsigned int xIndex = 0; xIndex < myNumberOfTiles; xIndex++ )
+		for( unsigned int xIndex = 0; xIndex < myNumberOfTilesHorizontal; xIndex++ )
 		{
 			myTest.Data().pos.x = xIndex * 100 + xOffset;
 			myTest.Data().pos.y = yIndex * ( 50 / 2 );
