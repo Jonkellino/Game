@@ -9,6 +9,9 @@ public:
 	~Player(void);
 
 private:
+		void Update( const float aDelta );
+	void Render();
+private:
 	Vector2f myPosition;
 	Sprite mySprite;
 };

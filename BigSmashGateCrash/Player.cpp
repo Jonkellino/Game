@@ -9,3 +9,13 @@ Player::Player(void)
 Player::~Player(void)
 {
 }
+
+void Player::Update( const float aDelta )
+{
+	mySprite.Data().pos = myPosition;
+}
+
+void Player::Render()
+{
+	mySprite.Render();
+}

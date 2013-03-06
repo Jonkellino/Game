@@ -12,6 +12,8 @@ App::~App(void)
 
 bool App::Logic(const float aDelta)
 {
+	myPlayer.Update( aDelta );
 	myMap.Render();
+	myPlayer.Render();
 	return false;
 }

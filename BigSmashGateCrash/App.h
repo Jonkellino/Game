@@ -1,5 +1,6 @@
 #pragma once
 
+#include "Player.h"
 #include "Map.h"
 
 class App
@@ -12,5 +13,6 @@ public:
 
 private:
 	int myPrevMSSinceInit;
+	Player myPlayer;
 	Map myMap;
 };
