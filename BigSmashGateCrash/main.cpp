@@ -25,8 +25,12 @@ static void SynchronizeRender() {
 
 int logicThreadFunc(void* unused) {
 	App* app = new App();
+	const int ticks = SDL_GetTicks();
+	int prevMSSinceInit = 0;
 	while(true) {
-		quit = app->Logic();
+		const float delta = static_cast<float>(ticks - prevMSSinceInit) * 0.001f;
+		quit = app->Logic(delta);
+		prevMSSinceInit = ticks;
 		logicDone = true;
 		SynchronizeLogic();
 	}

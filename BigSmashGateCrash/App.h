@@ -8,8 +8,9 @@ public:
 	App(void);
 	~App(void);
 
-	bool Logic();//Should get DeltaTime
+	bool Logic(const float aDelta);
 
 private:
+	int myPrevMSSinceInit;
 	Map myMap;
 };
