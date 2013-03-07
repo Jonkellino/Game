@@ -9,6 +9,7 @@ App::App(void)
 	myFPSText.Load(myFPSTextBuffer, "FPSText");
 	myFPSText.Data().pos = Vector2i(0,0);
 	myFPSText.Data().hotspot = Vector2f(0,0);
+	myFPSText.Data().depth = -1000.f;
 }
 
 App::~App(void)
