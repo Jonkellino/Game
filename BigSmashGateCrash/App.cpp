@@ -13,6 +13,7 @@ App::App(void)
 
 App::~App(void)
 {
+	delete myFPSTextBuffer;
 }
 
 bool App::Logic(const float aDelta)
