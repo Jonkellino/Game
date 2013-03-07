@@ -46,9 +46,7 @@ void Player::Movement(const float aDelta)
 		velocity.y -= speedPerSecond;
 	}
 	myPosition += velocity;
-	const float clampRadius = 150.f;
-
-	
+	const float clampRadius = 150.f; 
 	myOffsetVector += velocity;
 	if(myOffsetVector.LengthSquared() > clampRadius*clampRadius)
 	{	
@@ -60,6 +58,5 @@ void Player::Movement(const float aDelta)
 		Vector2f movement = myOffsetVector * aDelta;
 		myPosition += movement;
 		myOffsetVector -= movement;
-	}
-	
+	} 
 }
