@@ -28,6 +28,6 @@ static struct CommonChunkData
 } ourChunkData;
 
 private:
-	static const unsigned int myNumberOfChunks = 4;
+	static const unsigned int myNumberOfChunks = 1;
 	std::array< std::array< Chunk, myNumberOfChunks >, myNumberOfChunks > myChunks;
 };
