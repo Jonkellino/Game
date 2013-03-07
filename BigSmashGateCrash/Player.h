@@ -14,5 +14,6 @@ public:
 private:
 	void Movement(const float aDelta);
 	Vector2f myPosition;
+	Vector2f myOffsetVector;
 	Sprite mySprite;
 };

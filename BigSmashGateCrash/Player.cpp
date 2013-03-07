@@ -15,7 +15,7 @@ void Player::Update( const float aDelta, Vector2f& aCameraPosition )
 {
 	Movement(aDelta);
 	aCameraPosition = myPosition;
-	mySprite.Data().pos = Vector2i(1680/2, 1024/2);
+	mySprite.Data().pos = Vector2i(1680/2, 1024/2) + static_cast<Vector2i>(myOffsetVector);
 	mySprite.Data().depth = -1.0f;
 }
 
@@ -46,4 +46,20 @@ void Player::Movement(const float aDelta)
 		velocity.y -= speedPerSecond;
 	}
 	myPosition += velocity;
+	const float clampRadius = 150.f;
+
+	
+	myOffsetVector += velocity;
+	if(myOffsetVector.LengthSquared() > clampRadius*clampRadius)
+	{	
+		myOffsetVector.Normalize();
+		myOffsetVector *= clampRadius-0.5f; // Dirty epsilon hack to keep it from inf-clamping.
+	}
+	else
+	{
+		Vector2f movement = myOffsetVector * aDelta;
+		myPosition += movement;
+		myOffsetVector -= movement;
+	}
+	
 }
