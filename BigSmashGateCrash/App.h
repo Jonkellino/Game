@@ -1,6 +1,7 @@
 #pragma once
 
 #include "Player.h"
+#include "Text.h"
 #include "Map.h"
 
 class App
@@ -16,4 +17,8 @@ private:
 
 	Player myPlayer;
 	Map myMap;
+
+	void RenderFPS(const float aDelta);
+	Text myFPSText;
+	char* myFPSTextBuffer;
 };
