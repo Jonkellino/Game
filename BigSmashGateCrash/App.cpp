@@ -24,7 +24,7 @@ bool App::Logic(const float aDelta)
 	{
 		return true;
 	}
-	RenderFPS(aDelta);
+	RenderFPS( aDelta );
 	myPlayer.Update( aDelta, myCamera );
 	myMap.Render( myCamera );
 	myPlayer.Render();
@@ -35,7 +35,7 @@ bool App::Logic(const float aDelta)
 void App::RenderFPS(const float aDelta) 
 {
 	myFPSTextBuffer[0] = '\0';
-	itoa(static_cast<int>(1.f/aDelta), myFPSTextBuffer, 10);
+	_itoa_s( static_cast<int>(1.f/aDelta), myFPSTextBuffer, 16, 10 );
 	myFPSText.Load(myFPSTextBuffer, "FPSText");
 	myFPSText.Render();
 }

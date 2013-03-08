@@ -8,6 +8,8 @@ Project("{8BC9CEB8-8B4A-11D0-8D11-00A0C91BC942}") = "BigSmashGateCrash", "BigSma
 EndProject
 Project("{8BC9CEB8-8B4A-11D0-8D11-00A0C91BC942}") = "Engine", "..\Engine\Engine.vcxproj", "{40C03E50-15AD-4372-9AE2-D5836713EC1E}"
 EndProject
+Project("{8BC9CEB8-8B4A-11D0-8D11-00A0C91BC942}") = "Box2d", "Box2d\Box2d.vcxproj", "{6640EDC7-28F4-4C7E-9444-2126121E7EF4}"
+EndProject
 Global
 	GlobalSection(SolutionConfigurationPlatforms) = preSolution
 		Debug|Win32 = Debug|Win32
@@ -22,6 +24,10 @@ Global
 		{40C03E50-15AD-4372-9AE2-D5836713EC1E}.Debug|Win32.Build.0 = Debug|Win32
 		{40C03E50-15AD-4372-9AE2-D5836713EC1E}.Release|Win32.ActiveCfg = Release|Win32
 		{40C03E50-15AD-4372-9AE2-D5836713EC1E}.Release|Win32.Build.0 = Release|Win32
+		{6640EDC7-28F4-4C7E-9444-2126121E7EF4}.Debug|Win32.ActiveCfg = Debug|Win32
+		{6640EDC7-28F4-4C7E-9444-2126121E7EF4}.Debug|Win32.Build.0 = Debug|Win32
+		{6640EDC7-28F4-4C7E-9444-2126121E7EF4}.Release|Win32.ActiveCfg = Release|Win32
+		{6640EDC7-28F4-4C7E-9444-2126121E7EF4}.Release|Win32.Build.0 = Release|Win32
 	EndGlobalSection
 	GlobalSection(SolutionProperties) = preSolution
 		HideSolutionNode = FALSE
