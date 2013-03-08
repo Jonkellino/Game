@@ -17,7 +17,7 @@ App::~App(void)
 	delete myFPSTextBuffer;
 }
 
-bool App::Logic(const float aDelta)
+bool App::Logic( const float aDelta )
 {
 	KeyboardInput->Update();
 	if(KeyboardInput->KeyDown(SDL_SCANCODE_ESCAPE))
@@ -25,12 +25,24 @@ bool App::Logic(const float aDelta)
 		return true;
 	}
 	RenderFPS( aDelta );
+	Update( aDelta );
+
+	static const float physicsFps = 30;
+	static const float timeStep = 1 / physicsFps;
+	static float physicsTimer = 0;
+	physicsTimer += aDelta;
+	if( physicsTimer >= timeStep )
+	{
+		physicsTimer = 0.0f;
+		//box2d physics
+		FixedUpdate( timeStep );
+	}
+
 	myPlayer.Update( aDelta, myCamera );
 	myMap.Render( myCamera );
 	myPlayer.Render();
 	return false;
 }
-
 
 void App::RenderFPS(const float aDelta) 
 {
@@ -38,4 +50,12 @@ void App::RenderFPS(const float aDelta)
 	_itoa_s( static_cast<int>(1.f/aDelta), myFPSTextBuffer, 16, 10 );
 	myFPSText.Load(myFPSTextBuffer, "FPSText");
 	myFPSText.Render();
+}
+
+void App::Update( const float aDelta )
+{
+}
+
+void App::FixedUpdate( const float aDelta )
+{
 }

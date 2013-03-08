@@ -15,7 +15,12 @@
       <Filter>Player</Filter>
     </ClCompile>
     <ClCompile Include="Player.cpp" />
-  </ItemGroup>
+  </ItemGrou>
+      <Filter>Player</Filter>
+    </ClCompile>
+    <ClCompile Include="PhysicsWrapper.cpp">
+      <Filter>Physics</Filter>
+    </ClCompile
   <ItemGroup>
     <Filter Include="Application">
       <UniqueIdentifier>{5b360779-947a-424d-8ce1-cdb692979eaf}</UniqueIdentifier>
@@ -26,6 +31,10 @@
     <Filter Include="Player">
       <UniqueIdentifier>{0024f614-0998-4c45-924e-7889d8da28a7}</UniqueIdentifier>
     </Filter>
+  </ItemGroup>
+  <ItemGroup>
+   <Filter Include="Physics">
+      <UniqueIdentifier>{e3710e01-15a0-4217-a4b1-f700e483817b/Filter>
   </ItemGroup>
   <ItemGroup>
     <ClInclude Include="App.h">
@@ -41,5 +50,12 @@
       <Filter>Player</Filter>
     </ClInclude>
     <ClInclude Include="Player.h" />
+  </ItemGroup>
+</Project>>
+      <Filter>Player</Filter>
+    </ClInclude>
+    <ClInclude Include="PhysicsWrapper.h">
+      <Filter>Physics</Filter>
+    </ClInclude>
   </ItemGroup>
 </Project>

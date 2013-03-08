@@ -1,5 +1,6 @@
 #pragma once
 
+#include "PhysicsWrapper.h"
 #include "Camera.h"
 #include "Player.h"
 #include "Text.h"
@@ -16,9 +17,14 @@ public:
 private:
 	void RenderFPS(const float aDelta);
 
+	void Update( const float aDelta );
+	void FixedUpdate( const float aDelta );
+
 private:
 	Text myFPSText;
 	char* myFPSTextBuffer;
+
+	PhysicsWrapper myPhysics;
 
 	Camera myCamera;
 	Player myPlayer;
