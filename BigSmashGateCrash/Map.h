@@ -2,6 +2,7 @@
 
 #include <array>
 #include <vector>
+#include "Camera.h"
 #include "Chunk.h"
 
 class Map
@@ -10,10 +11,7 @@ public:
 	Map();
 	~Map();
 
-	void Render(const Vector2f& aCameraPosition);
-
-//private:
-//	std::vector< Chunk& > GetChunksInside( Vector2f aTopLeft, Vector2f aBottomRight );
+	void Render( const Camera& aCamera );
 
 public:
 static struct CommonTileData

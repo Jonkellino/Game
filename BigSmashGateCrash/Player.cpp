@@ -11,10 +11,10 @@ Player::~Player(void)
 {
 }
 
-void Player::Update( const float aDelta, Vector2f& aCameraPosition )
+void Player::Update( const float aDelta, Camera& aCamera )
 {
 	Movement(aDelta);
-	aCameraPosition = myPosition;
+	aCamera.SetPosition( myPosition );
 	mySprite.Data().pos = Vector2i(1680/2, 1024/2) + static_cast<Vector2i>(myOffsetVector);
 	mySprite.Data().depth = -1.0f;
 }
@@ -24,7 +24,7 @@ void Player::Render()
 	mySprite.Render();
 }
 
-void Player::Movement(const float aDelta)
+void Player::Movement( const float aDelta )
 {
 	Vector2f velocity;
 	const float speed = 250;

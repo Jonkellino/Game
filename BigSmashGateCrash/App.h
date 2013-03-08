@@ -1,5 +1,6 @@
 #pragma once
 
+#include "Camera.h"
 #include "Player.h"
 #include "Text.h"
 #include "Map.h"
@@ -13,12 +14,13 @@ public:
 	bool Logic(const float aDelta);
 
 private:
-	Vector2f myCameraPosition;
-
-	Player myPlayer;
-	Map myMap;
-
 	void RenderFPS(const float aDelta);
+
+private:
 	Text myFPSText;
 	char* myFPSTextBuffer;
+
+	Camera myCamera;
+	Player myPlayer;
+	Map myMap;
 };

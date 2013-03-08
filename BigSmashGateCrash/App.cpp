@@ -25,8 +25,8 @@ bool App::Logic(const float aDelta)
 		return true;
 	}
 	RenderFPS(aDelta);
-	myPlayer.Update( aDelta, myCameraPosition );
-	myMap.Render(myCameraPosition);
+	myPlayer.Update( aDelta, myCamera );
+	myMap.Render( myCamera );
 	myPlayer.Render();
 	return false;
 }
