@@ -73,7 +73,7 @@ bool App::Logic( const float aDelta )
 	message.lineArrayRender.verticeCount = 5;
 	message.lineArrayRender.myVertices = myLineTestBuffer;
 	message.lineArrayRender.myColor = ConstructColor(255, 255, 255, 255);
-	EngineInstance->NotifyMessage(message);
+	//EngineInstance->NotifyMessage(message);
 
 #ifdef _DEBUG
 	myPhysics.DrawDebug();

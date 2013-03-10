@@ -1,6 +1,7 @@
 #ifdef _DEBUG
 #include "DebugDraw.h"
 #include "PhysicsWrapper.h"
+#include "Engine.h"
 
 DebugDraw::DebugDraw()
 {
@@ -60,8 +61,29 @@ void DebugDraw::DrawSolidCircle( const b2Vec2& center, float32 radius, const b2V
 {
 	Vector2f pos = Vector2f( center.x, center.y );
 	pos *= PTM_RATIO;
+	float rad = radius * PTM_RATIO;
 	testSprite.Data().pos = pos;
 	testSprite.Render();
+
+	SDL_Point* points = new SDL_Point[5];
+	points[0].x = pos.x - rad;
+	points[0].y = pos.y - rad;
+	points[1].x = pos.x + rad;
+	points[1].y = pos.y - rad;
+	points[2].x = pos.x + rad;
+	points[2].y = pos.y + rad;
+	points[3].x = pos.x - rad;
+	points[3].y = pos.y + rad;
+	points[4].x = pos.x - rad;
+	points[4].y = pos.y - rad;
+
+	EngineMessage message;
+	message.myType = EngineMessageType::LINE_ARRAY_RENDER;
+	message.lineArrayRender.verticeCount = 5;
+	message.lineArrayRender.myVertices = points;
+	message.lineArrayRender.myColor = myDebugColour;
+	EngineInstance->NotifyMessage(message);
+
 	/*
 	GraphicsEngine* engine = GraphicsEngine::GetInstance();
 	if( engine )
