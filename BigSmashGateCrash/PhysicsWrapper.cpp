@@ -2,7 +2,7 @@
 
 PhysicsWrapper::PhysicsWrapper(void)
 {
-	//myPhysicsWorld = new b2World( b2Vec2( 0.0f, 0.0f ) );
+	myPhysicsWorld = new b2World( b2Vec2( 0.0f, 0.0f ) );
 	/*
 	myPhysicsDrawer.AppendFlags( b2Draw::e_shapeBit );
 #ifdef _DEBUG
@@ -14,11 +14,13 @@ PhysicsWrapper::PhysicsWrapper(void)
 
 PhysicsWrapper::~PhysicsWrapper(void)
 {
+	delete myPhysicsWorld;
+	myPhysicsWorld = 0;
 }
 
 void PhysicsWrapper::Step( const float aTimeStep )
 {
-	//myPhysicsWorld->Step( aTimeStep, myVelocityIterations, myPositionIterations );
+	myPhysicsWorld->Step( aTimeStep, myVelocityIterations, myPositionIterations );
 }
 
 void PhysicsWrapper::DrawDebug()

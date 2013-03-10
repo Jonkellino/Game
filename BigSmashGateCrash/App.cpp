@@ -34,8 +34,8 @@ bool App::Logic( const float aDelta )
 	if( physicsTimer >= timeStep )
 	{
 		physicsTimer = 0.0f;
-		//box2d physics
 		FixedUpdate( timeStep );
+		myPhysics.Step( timeStep );
 	}
 
 	myPlayer.Update( aDelta, myCamera );
