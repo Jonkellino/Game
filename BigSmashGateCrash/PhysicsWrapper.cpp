@@ -3,13 +3,11 @@
 PhysicsWrapper::PhysicsWrapper(void)
 {
 	myPhysicsWorld = new b2World( b2Vec2( 0.0f, 0.0f ) );
-	/*
-	myPhysicsDrawer.AppendFlags( b2Draw::e_shapeBit );
 #ifdef _DEBUG
+	myPhysicsDrawer.AppendFlags( b2Draw::e_shapeBit );
 	myPhysicsWorld->SetDebugDraw( &myPhysicsDrawer );
 #endif
-	myPhysicsWorld->SetContactListener( &myPhysicsListener );
-	*/
+	//myPhysicsWorld->SetContactListener( &myPhysicsListener );
 }
 
 PhysicsWrapper::~PhysicsWrapper(void)
@@ -23,11 +21,10 @@ void PhysicsWrapper::Step( const float aTimeStep )
 	myPhysicsWorld->Step( aTimeStep, myVelocityIterations, myPositionIterations );
 }
 
+#ifdef _DEBUG
 void PhysicsWrapper::DrawDebug()
 {
-	/*
-	myPhysicsDrawer.SetCameraPos( GraphicsEngine::GetInstance()->GetCameraPosition() );
 	myPhysicsWorld->DrawDebugData();
 	myPhysicsDrawer.DrawDebugData();
-	*/
 }
+#endif

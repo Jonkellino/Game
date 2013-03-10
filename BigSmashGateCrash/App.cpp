@@ -18,6 +18,24 @@ App::App(void)
 		myLineTestBuffer[i].x = rand()% 1680;
 		myLineTestBuffer[i].y = rand()% 1080;
 	}
+
+	b2World* currentWorld = myPhysics.GetWorld();
+
+	b2CircleShape* shape = new b2CircleShape();
+	shape->m_radius =  100 / 2.0f / PTM_RATIO;
+
+	b2Filter filter;
+
+	b2FixtureDef fixtureDef;
+	fixtureDef.shape = shape;
+	fixtureDef.filter = filter;
+
+	b2BodyDef bodyDef;
+
+	b2Body* body = currentWorld->CreateBody( &bodyDef );
+	body->CreateFixture( &fixtureDef );
+	body->SetTransform( b2Vec2( 100 / PTM_RATIO, 100 / PTM_RATIO ), 0 );
+	delete fixtureDef.shape;
 }
 
 App::~App(void)
@@ -57,6 +75,9 @@ bool App::Logic( const float aDelta )
 	message.lineArrayRender.myColor = ConstructColor(255, 255, 255, 255);
 	EngineInstance->NotifyMessage(message);
 
+#ifdef _DEBUG
+	myPhysics.DrawDebug();
+#endif
 
 	return false;
 }
