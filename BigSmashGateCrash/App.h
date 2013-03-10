@@ -29,4 +29,6 @@ private:
 	Camera myCamera;
 	Player myPlayer;
 	Map myMap;
+
+	SDL_Point* myLineTestBuffer;
 };
