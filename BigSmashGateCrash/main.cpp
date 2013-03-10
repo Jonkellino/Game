@@ -55,19 +55,16 @@ int main( int argc, char* argv[]) {
 			switch(sdlEvent.type) {
 			case SDL_WINDOWEVENT:
 				switch(sdlEvent.window.type) {
-				case SDL_WINDOWEVENT_SIZE_CHANGED: {
-					EngineMessage message = {EngineMessageType::WINDOW_SIZE_CHANGE};//, {event.window.data1, event.window.data2} };
-					message.windowSizeChange.myWindowSize[0] = sdlEvent.window.data1;
-					message.windowSizeChange.myWindowSize[1] = sdlEvent.window.data2;
-					Engine::GetInstance()->NotifyMessage(message);
+				case SDL_WINDOWEVENT_SIZE_CHANGED:
+					//EngineMessage message = {EngineMessageType::WINDOW_SIZE_CHANGE};//, {event.window.data1, event.window.data2} };
+					//message.windowSizeChange.myWindowSize[0] = sdlEvent.window.data1;
+					//message.windowSizeChange.myWindowSize[1] = sdlEvent.window.data2;
+					//Engine::GetInstance()->NotifyMessage(message);
 					break;
-												   }
-
-				case SDL_WINDOWEVENT_CLOSE:  {
+				case SDL_WINDOWEVENT_CLOSE: 
 					sdlEvent.type = SDL_QUIT;
 					SDL_PushEvent(&sdlEvent);
 					break;
-											 }
 				}
 				break;
 			case SDL_QUIT:

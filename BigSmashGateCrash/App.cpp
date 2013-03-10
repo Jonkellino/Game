@@ -1,6 +1,7 @@
 #include "App.h"
 #include "SDL\SDL.h"
 #include "Keyboard.h"
+#include "Engine.h"
 
 App::App(void)
 {
@@ -10,6 +11,13 @@ App::App(void)
 	myFPSText.Data().pos = Vector2i(0,0);
 	myFPSText.Data().hotspot = Vector2f(0,0);
 	myFPSText.Data().depth = -1000.f;
+
+	myLineTestBuffer = new SDL_Point[5]; //BUGG, MEMLEAK 
+	for(int i = 0; i < 5; ++i) 
+	{
+		myLineTestBuffer[i].x = rand()% 1680;
+		myLineTestBuffer[i].y = rand()% 1080;
+	}
 }
 
 App::~App(void)
@@ -41,6 +49,15 @@ bool App::Logic( const float aDelta )
 	myPlayer.Update( aDelta, myCamera );
 	myMap.Render( myCamera );
 	myPlayer.Render();
+
+	EngineMessage message;
+	message.myType = EngineMessageType::LINE_ARRAY_RENDER;
+	message.lineArrayRender.verticeCount = 5;
+	message.lineArrayRender.myVertices = myLineTestBuffer;
+	message.lineArrayRender.myColor = ConstructColor(255, 255, 255, 255);
+	EngineInstance->NotifyMessage(message);
+
+
 	return false;
 }
 
