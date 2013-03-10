@@ -1,10 +1,14 @@
 #pragma once
 
+#define PTM_RATIO 32
+
+#ifdef _DEBUG
+#include "DebugDraw.h"
+#endif
 #include "Box2D.h"
-//#include "DebugDraw.h"
+
 //#include "PhysicsListener.h"
 //#include "PhysicsBody.h"
-//#include "LuaPlus.h"
 
 class PhysicsWrapper
 {
@@ -13,23 +17,19 @@ public:
 	~PhysicsWrapper(void);
 
 	void Step( const float aTimeStep );
+
+#ifdef _DEBUG
 	void DrawDebug();
+#endif
 
-	/*
-	LuaPlus::LuaObject CreateShapeBox( float aWidth, float aHeight );
-	LuaPlus::LuaObject CreateShapeCircle( float aRadius );
-
-	LuaPlus::LuaObject CreateFilter();
-	LuaPlus::LuaObject CreateFixture( LuaPlus::LuaObject aShape );
-	LuaPlus::LuaObject CreateBodyDef();
-
-	LuaPlus::LuaObject CreateBody( LuaPlus::LuaObject aFilter, LuaPlus::LuaObject aFixture, LuaPlus::LuaObject aBodyDef, LuaPlus::LuaObject anObject );
-	void DestroyBody( LuaPlus::LuaObject aBody );
-	*/
+public:
+	b2World* GetWorld(){ return myPhysicsWorld; }
 
 private:
 	b2World* myPhysicsWorld;
-	//DebugDraw myPhysicsDrawer;
+#ifdef _DEBUG
+	DebugDraw myPhysicsDrawer;
+#endif
 	//PhysicsListener myPhysicsListener;
 
 	static const int myVelocityIterations = 8;

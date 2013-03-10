@@ -82,6 +82,7 @@
     <ClCompile Include="App.cpp" />
     <ClCompile Include="Camera.cpp" />
     <ClCompile Include="Chunk.cpp" />
+    <ClCompile Include="DebugDraw.cpp" />
     <ClCompile Include="main.cpp" />
     <ClCompile Include="Map.cpp" />
     <ClCompile Include="PhysicsWrapper.cpp" />
@@ -91,6 +92,7 @@
     <ClInclude Include="App.h" />
     <ClInclude Include="Camera.h" />
     <ClInclude Include="Chunk.h" />
+    <ClInclude Include="DebugDraw.h" />
     <ClInclude Include="Map.h" />
     <ClInclude Include="PhysicsWrapper.h" />
     <ClInclude Include="Player.h" />
