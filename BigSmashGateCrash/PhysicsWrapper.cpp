@@ -31,6 +31,5 @@ void PhysicsWrapper::SetDrawCamera(Camera* aCamera)
 void PhysicsWrapper::DrawDebug()
 {
 	myPhysicsWorld->DrawDebugData();
-	myPhysicsDrawer.DrawDebugData();
 }
 #endif

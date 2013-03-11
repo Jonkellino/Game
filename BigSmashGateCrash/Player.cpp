@@ -15,8 +15,22 @@ Player::~Player(void)
 
 void Player::Init(b2World* aWorld) 
 {
-	b2CircleShape* shape = new b2CircleShape();
-	shape->m_radius =  100 / 2.0f / PTM_RATIO;
+	b2PolygonShape* shape = new b2PolygonShape();
+	
+	b2Vec2 vertices[8];
+	float widthRadius = 50 / PTM_RATIO;
+	float halfWidthRadius = widthRadius / 2;
+	float heightRadius = widthRadius / 2;
+	float halfHeightRadius = heightRadius / 2;
+	vertices[0].Set( -widthRadius, -halfHeightRadius );
+	vertices[1].Set( -halfWidthRadius, -heightRadius );
+	vertices[2].Set( halfWidthRadius, -heightRadius );
+	vertices[3].Set( widthRadius, -halfHeightRadius );
+	vertices[4].Set( widthRadius, halfHeightRadius );
+	vertices[5].Set( halfWidthRadius, heightRadius );
+	vertices[6].Set( -halfWidthRadius, heightRadius );
+	vertices[7].Set( -widthRadius, halfHeightRadius );
+	shape->Set( vertices, 8 );
 
 	b2Filter filter;
 
@@ -54,7 +68,6 @@ void Player::Render()
 
 void Player::Movement( const float aDelta )
 {
-
 	const float physUnitsPerSecond = 250.f * aDelta;
 	Vector2f velocity;
 	
@@ -74,7 +87,7 @@ void Player::Movement( const float aDelta )
 	{
 		velocity.y -= physUnitsPerSecond;
 	}
-	myBody->ApplyForceToCenter(b2Vec2(velocity.x, velocity.y));
+	myBody->SetLinearVelocity( b2Vec2( velocity.x, velocity.y ) );
 
 	const float clampRadius = 150.f;
 	myOffsetVector += (myPosition - myPreviousPosition );
@@ -85,9 +98,7 @@ void Player::Movement( const float aDelta )
 	}
 	myOffsetVector *= 0.95f;
 	const b2Vec2& physPos = myBody->GetPosition();
-	Vector2f worldPos(physPos.x * PTM_RATIO, physPos.y * PTM_RATIO);
+	Vector2f worldPos(physPos.x * PTM_RATIO, ( physPos.y * PTM_RATIO ) - 40);
 	myPreviousPosition = myPosition;
 	myPosition = worldPos;
-
-	
 }
