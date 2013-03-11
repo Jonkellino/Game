@@ -25,21 +25,23 @@ App::App(void)
 
 	myPlayer.Init(currentWorld);
 
-	b2CircleShape* shape = new b2CircleShape();
-	shape->m_radius =  100 / 2.0f / PTM_RATIO;
+	//b2CircleShape* shape = new b2CircleShape();
+	//shape->m_radius =  100 / 2.0f / PTM_RATIO;
 
-	b2Filter filter;
+	//b2Filter filter;
 
-	b2FixtureDef fixtureDef;
-	fixtureDef.shape = shape;
-	fixtureDef.filter = filter;
+	//b2FixtureDef fixtureDef;
+	//fixtureDef.shape = shape;
+	//fixtureDef.filter = filter;
 
-	b2BodyDef bodyDef;
+	//b2BodyDef bodyDef;
 
-	b2Body* body = currentWorld->CreateBody( &bodyDef );
-	body->CreateFixture( &fixtureDef );
-	body->SetTransform( b2Vec2( 100 / PTM_RATIO, 100 / PTM_RATIO ), 0 );
-	delete fixtureDef.shape;
+	//b2Body* body = currentWorld->CreateBody( &bodyDef );
+	//body->CreateFixture( &fixtureDef );
+	//body->SetTransform( b2Vec2( 100 / PTM_RATIO, 100 / PTM_RATIO ), 0 );
+	//delete fixtureDef.shape;
+
+	myMap.Init(currentWorld);
 }
 
 App::~App(void)

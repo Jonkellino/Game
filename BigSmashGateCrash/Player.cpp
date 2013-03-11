@@ -30,14 +30,14 @@ void Player::Init(b2World* aWorld)
 
 	myBody = aWorld->CreateBody( &bodyDef );
 	myBody->CreateFixture( &fixtureDef );
-	myBody->SetTransform( b2Vec2( 100 / PTM_RATIO, 100 / PTM_RATIO ), 0 );
+	myBody->SetTransform( b2Vec2( 250 / PTM_RATIO, 250/ PTM_RATIO ), 0 );
 	delete fixtureDef.shape;
 }
 
 void Player::Update( const float aDelta, Camera& aCamera )
 {
 	const Vector2i screenSize = Engine::GetInstance()->GetWindowSize();
-	aCamera.SetPosition( myPosition ); 
+	aCamera.SetPosition( myPosition - screenSize / 2); 
 	mySprite.Data().pos = screenSize / 2;
 	mySprite.Data().depth = -1.0f;
 }

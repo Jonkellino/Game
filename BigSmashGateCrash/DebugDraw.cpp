@@ -68,11 +68,11 @@ void DebugDraw::DrawSolidCircle( const b2Vec2& center, float32 radius, const b2V
 	Vector2f pos = Vector2f( center.x, center.y );
 	pos *= PTM_RATIO;
 	pos = pos - myCamera->GetPosition();
-	pos += static_cast<Vector2f>(Engine::GetInstance()->GetWindowSize() / 2);
+	//pos += static_cast<Vector2f>(Engine::GetInstance()->GetWindowSize() / 2);
 	float rad = radius * PTM_RATIO;
-	testSprite.Data().pos = pos;
+	//testSprite.Data().pos = pos;
 
-	testSprite.Render();
+	//testSprite.Render();
 
 	SDL_Point* points = new SDL_Point[5];
 	points[0].x = pos.x - rad;

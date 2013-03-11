@@ -23,13 +23,24 @@ Map::~Map()
 {
 }
 
+void Map::Init(b2World* aWorld)
+{
+	for(auto& chunkArr : myChunks)
+	{
+		for(auto& chunk : chunkArr)
+		{
+			chunk.Init(aWorld);
+		}
+	}
+}
+
 void Map::Render( const Camera& aCamera )
 {
 	for( unsigned int yIndex = 0; yIndex < myNumberOfChunks; yIndex++ )
 	{
 		for( unsigned int xIndex = 0; xIndex < myNumberOfChunks; xIndex++ )
 		{
-			myChunks[xIndex][yIndex].Render( aCamera.GetPosition() );
+			myChunks[xIndex][yIndex].Render( aCamera );
 		}
 	}
 }

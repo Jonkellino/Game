@@ -5,12 +5,15 @@
 #include "Camera.h"
 #include "Chunk.h"
 
+class b2World;
+
 class Map
 {
 public:
 	Map();
 	~Map();
 
+	void Init(b2World* aWorld);
 	void Render( const Camera& aCamera );
 
 public:
