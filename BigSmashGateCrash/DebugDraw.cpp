@@ -21,14 +21,6 @@ void DebugDraw::SetDrawCamera(Camera* aCamera)
 	myCamera = aCamera;
 }
 
-void DebugDraw::DrawDebugData()
-{
-	/*
-	GraphicsEngine::GetInstance()->RenderPhysics( myDebugVertices );
-	myDebugVertices.clear();
-	*/
-}
-
 void DebugDraw::DrawPolygon( const b2Vec2* vertices, int32 vertexCount, const b2Color& color )
 {
 	//Not used
@@ -36,7 +28,22 @@ void DebugDraw::DrawPolygon( const b2Vec2* vertices, int32 vertexCount, const b2
 
 void DebugDraw::DrawSolidPolygon( const b2Vec2* vertices, int32 vertexCount, const b2Color& color )
 {
-	int fia = 9;
+	Vector2f camPos = myCamera->GetPosition();
+
+	SDL_Point* points = new SDL_Point[vertexCount+1];
+	for( unsigned int index = 0; index < vertexCount; index++ )
+	{
+		points[index].x = ( vertices[index].x * PTM_RATIO ) - camPos.x;
+		points[index].y = ( vertices[index].y * PTM_RATIO ) - camPos.y;
+	}
+	points[vertexCount] = points[0];
+
+	EngineMessage message;
+	message.myType = EngineMessageType::LINE_ARRAY_RENDER;
+	message.lineArrayRender.verticeCount = vertexCount+1;
+	message.lineArrayRender.myVertices = points;
+	message.lineArrayRender.myColor = myDebugColour;
+	EngineInstance->NotifyMessage(message);
 	/*
 	GraphicsEngine* engine = GraphicsEngine::GetInstance();
 	if( engine )
