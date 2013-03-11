@@ -1,4 +1,5 @@
 #include "PhysicsWrapper.h"
+#include "Camera.h"
 
 PhysicsWrapper::PhysicsWrapper(void)
 {
@@ -22,6 +23,11 @@ void PhysicsWrapper::Step( const float aTimeStep )
 }
 
 #ifdef _DEBUG
+void PhysicsWrapper::SetDrawCamera(Camera* aCamera)
+{
+	myPhysicsDrawer.SetDrawCamera(aCamera);
+}
+
 void PhysicsWrapper::DrawDebug()
 {
 	myPhysicsWorld->DrawDebugData();

@@ -12,6 +12,8 @@ App::App(void)
 	myFPSText.Data().hotspot = Vector2f(0,0);
 	myFPSText.Data().depth = -1000.f;
 
+	myCamera.Init(static_cast<Vector2f>(Engine::GetInstance()->GetWindowSize()));
+
 	myLineTestBuffer = new SDL_Point[5]; //BUGG, MEMLEAK 
 	for(int i = 0; i < 5; ++i) 
 	{
@@ -20,6 +22,8 @@ App::App(void)
 	}
 
 	b2World* currentWorld = myPhysics.GetWorld();
+
+	myPlayer.Init(currentWorld);
 
 	b2CircleShape* shape = new b2CircleShape();
 	shape->m_radius =  100 / 2.0f / PTM_RATIO;
@@ -57,9 +61,9 @@ bool App::Logic( const float aDelta )
 	static const float timeStep = 1 / physicsFps;
 	static float physicsTimer = 0;
 	physicsTimer += aDelta;
-	if( physicsTimer >= timeStep )
+	while( physicsTimer >= timeStep )
 	{
-		physicsTimer = 0.0f;
+		physicsTimer -= timeStep;
 		FixedUpdate( timeStep );
 		myPhysics.Step( timeStep );
 	}
@@ -76,6 +80,7 @@ bool App::Logic( const float aDelta )
 	//EngineInstance->NotifyMessage(message);
 
 #ifdef _DEBUG
+	myPhysics.SetDrawCamera(&myCamera);
 	myPhysics.DrawDebug();
 #endif
 
@@ -96,4 +101,5 @@ void App::Update( const float aDelta )
 
 void App::FixedUpdate( const float aDelta )
 {
+	myPlayer.FixedUpdate(aDelta);
 }

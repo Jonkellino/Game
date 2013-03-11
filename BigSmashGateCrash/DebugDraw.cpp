@@ -2,6 +2,7 @@
 #include "DebugDraw.h"
 #include "PhysicsWrapper.h"
 #include "Engine.h"
+#include "Camera.h"
 
 DebugDraw::DebugDraw()
 {
@@ -13,6 +14,11 @@ DebugDraw::DebugDraw()
 
 DebugDraw::~DebugDraw()
 {
+}
+
+void DebugDraw::SetDrawCamera(Camera* aCamera)
+{
+	myCamera = aCamera;
 }
 
 void DebugDraw::DrawDebugData()
@@ -61,8 +67,11 @@ void DebugDraw::DrawSolidCircle( const b2Vec2& center, float32 radius, const b2V
 {
 	Vector2f pos = Vector2f( center.x, center.y );
 	pos *= PTM_RATIO;
+	pos = pos - myCamera->GetPosition();
+	pos += static_cast<Vector2f>(Engine::GetInstance()->GetWindowSize() / 2);
 	float rad = radius * PTM_RATIO;
 	testSprite.Data().pos = pos;
+
 	testSprite.Render();
 
 	SDL_Point* points = new SDL_Point[5];

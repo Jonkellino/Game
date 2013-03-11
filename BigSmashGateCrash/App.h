@@ -14,7 +14,7 @@ public:
 
 	bool Logic(const float aDelta);
 
-private:
+private: 
 	void RenderFPS(const float aDelta);
 
 	void Update( const float aDelta );

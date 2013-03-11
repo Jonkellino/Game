@@ -10,6 +10,8 @@
 //#include "PhysicsListener.h"
 //#include "PhysicsBody.h"
 
+class Camera;
+
 class PhysicsWrapper
 {
 public:
@@ -19,6 +21,7 @@ public:
 	void Step( const float aTimeStep );
 
 #ifdef _DEBUG
+	void SetDrawCamera(Camera* aCamera);
 	void DrawDebug();
 #endif
 

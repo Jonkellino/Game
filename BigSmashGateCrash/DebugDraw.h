@@ -6,12 +6,13 @@
 
 #include "Sprite.h"
 
+class Camera;
 class DebugDraw : public b2Draw
 {
 public:
 	DebugDraw();
 	~DebugDraw();
-
+	void SetDrawCamera(Camera* aCamera);
 	void DrawDebugData();
 
 	void DrawPolygon( const b2Vec2* vertices, int32 vertexCount, const b2Color& color );
@@ -22,6 +23,7 @@ public:
 	void DrawTransform( const b2Transform& xf );
 
 private:
+	Camera* myCamera;
 	Colour myDebugColour;
 
 	Sprite testSprite;
