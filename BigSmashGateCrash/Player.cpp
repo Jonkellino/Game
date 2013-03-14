@@ -51,27 +51,24 @@ void Player::Init(b2World* aWorld)
 
 void Player::Update( const float aDelta, Camera& aCamera )
 {
-	if( KeyboardInput->KeyPressed( SDL_SCANCODE_I ) )
-	{
-		if( myState == PLAYERSTATE_PLAYING )
-		{
-			myState = PLAYERSTATE_INVENTORY;
-		}
-		else if( myState == PLAYERSTATE_INVENTORY )
-		{
-			myState = PLAYERSTATE_PLAYING;
-		}
-	}
-
 	if( myState == PLAYERSTATE_PLAYING )
 	{
 		const Vector2i screenSize = Engine::GetInstance()->GetWindowSize();
 		aCamera.SetPosition( myPosition - screenSize / 2); 
 		mySprite.Data().pos = screenSize / 2;
 		mySprite.Data().depth = -1.0f;
+
+		if( KeyboardInput->KeyPressed( SDL_SCANCODE_I ) )
+		{
+			myState = PLAYERSTATE_INVENTORY;
+		}
 	}
 	else if( myState == PLAYERSTATE_INVENTORY )
 	{
+		if( KeyboardInput->KeyPressed( SDL_SCANCODE_I ) )
+		{
+			myState = PLAYERSTATE_PLAYING;
+		}
 	}
 }
 
@@ -115,16 +112,7 @@ void Player::Movement( const float aDelta )
 	}
 	myBody->SetLinearVelocity( b2Vec2( velocity.x, velocity.y ) );
 
-	const float clampRadius = 150.f;
-	myOffsetVector += (myPosition - myPreviousPosition );
-	if(myOffsetVector.LengthSquared() > clampRadius*clampRadius)
-	{	
-		myOffsetVector.Normalize();
-		myOffsetVector *= clampRadius-0.5f; // Dirty epsilon hack to keep it from inf-clamping.
-	}
-	myOffsetVector *= 0.95f;
 	const b2Vec2& physPos = myBody->GetPosition();
 	Vector2f worldPos(physPos.x * PTM_RATIO, ( physPos.y * PTM_RATIO ) - 40);
-	myPreviousPosition = myPosition;
 	myPosition = worldPos;
 }

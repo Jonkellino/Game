@@ -33,7 +33,5 @@ private:
 private:
 	b2Body* myBody;
 	Vector2f myPosition;
-	Vector2f myPreviousPosition;
-	Vector2f myOffsetVector;
 	Sprite mySprite;
 };
