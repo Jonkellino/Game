@@ -76,6 +76,7 @@ void App::Render()
 {
 	myMap.Render( myCamera );
 	myPlayer.Render();
+	myEnemy.Render( myCamera );
 
 #ifdef _DEBUG
 	myPhysics.SetDrawCamera(&myCamera);

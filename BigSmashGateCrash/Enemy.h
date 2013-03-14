@@ -4,6 +4,7 @@
 
 class b2World;
 class b2Body;
+class Camera;
 
 class Enemy
 {
@@ -14,7 +15,7 @@ public:
 	void Init(b2World* aWorld);
 	void Update(const float aDelta);
 	void FixedUpdate(const float aDelta);
-	void Render();
+	void Render(const Camera& aCamera);
 
 	void MoveTowards(const Vector2f aMoveTarget);
 	void RotateTowards(float aRotation);

@@ -1,5 +1,6 @@
 #include "Enemy.h"
 #include "PhysicsWrapper.h"
+#include "Camera.h"
 
 Enemy::Enemy(void)
 {
@@ -43,11 +44,25 @@ void Enemy::Init(b2World* aWorld)
 	myBody->CreateFixture( &fixtureDef );
 	myBody->SetTransform( b2Vec2( 250 / PTM_RATIO, 250/ PTM_RATIO ), 0 );
 	delete fixtureDef.shape;
+
+	mySprite.Load("data/graphics/enemy/orc.png");
+	mySprite.Data().hotspot = Vector2f(0.5f, 1.0f);
+	mySprite.Data().depth = -100.f;
+	myRotationTarget = 0.f;
 }
 
 void Enemy::Update(const float aDelta)
 {
 	mySprite.Data().angle = myRotationTarget;
+	if(myBody->GetLinearVelocity().x > 0)
+	{
+		mySprite.Data().flip = SDL_FLIP_HORIZONTAL;
+	}
+	else
+	{
+		mySprite.Data().flip = SDL_FLIP_NONE;
+	}
+	
 }
 
 void Enemy::FixedUpdate(const float aDelta)
@@ -64,11 +79,16 @@ void Enemy::FixedUpdate(const float aDelta)
 		velocity *= physUnitsPerSecond;
 		myBody->SetLinearVelocity(velocity);
 	}
+
+	mySprite.Data().pos = position * PTM_RATIO;
 }
 
-void Enemy::Render()
+void Enemy::Render(const Camera& aCamera)
 {
+	Vector2f previousPos = mySprite.Data().pos;
+	mySprite.Data().pos -= static_cast<Vector2i>(aCamera.GetPosition());
 	mySprite.Render();
+	mySprite.Data().pos = previousPos;
 }
 
 void Enemy::MoveTowards(const Vector2f aMoveTarget)
