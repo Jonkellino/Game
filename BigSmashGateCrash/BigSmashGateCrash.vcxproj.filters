@@ -40,6 +40,7 @@
     </Filter> 
     <Filter Include="Enemy">
       <UniqueIdentifier>{282e20f0-fd58-4d8e-869f-1f7574e4b0a5}</UniqueIdentifier> 
+    </Filter>
     <Filter Include="Player\Inventory">
       <UniqueIdentifier>{296c057e-eb26-4445-805d-870079f755c4}</UniqueIdentifier> 
     </Filter>
