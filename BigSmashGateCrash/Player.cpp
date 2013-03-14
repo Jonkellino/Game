@@ -5,6 +5,7 @@
 
 Player::Player(void)
 {
+	myState = PLAYERSTATE_PLAYING;
 	myPosition = Vector2f( 300.0f, 200.0f );
 	mySprite.Load( "data/graphics/player/player.png" );
 }
@@ -50,20 +51,53 @@ void Player::Init(b2World* aWorld)
 
 void Player::Update( const float aDelta, Camera& aCamera )
 {
-	const Vector2i screenSize = Engine::GetInstance()->GetWindowSize();
-	aCamera.SetPosition( myPosition - screenSize / 2); 
-	mySprite.Data().pos = screenSize / 2;
-	mySprite.Data().depth = -1.0f;
+	if( myState == PLAYERSTATE_PLAYING )
+	{
+		const Vector2i screenSize = Engine::GetInstance()->GetWindowSize();
+		aCamera.SetPosition( myPosition - screenSize / 2); 
+		mySprite.Data().pos = screenSize / 2;
+		mySprite.Data().depth = -1.0f;
+
+		if( KeyboardInput->KeyPressed( SDL_SCANCODE_I ) )
+		{
+			myState = PLAYERSTATE_INVENTORY;
+			myBody->SetLinearVelocity( b2Vec2( 0, 0 ) );
+		}
+	}
+	else if( myState == PLAYERSTATE_INVENTORY )
+	{
+		myInventory.Update( aDelta );
+
+		if( KeyboardInput->KeyPressed( SDL_SCANCODE_I ) )
+		{
+			myState = PLAYERSTATE_PLAYING;
+		}
+	}
 }
 
 void Player::FixedUpdate(const float aDelta)
 {
-	Movement(aDelta);
+	if( myState == PLAYERSTATE_PLAYING )
+	{
+		Movement(aDelta);
+	}
+	else if( myState == PLAYERSTATE_INVENTORY )
+	{
+		
+	}
 }
 
 void Player::Render()
 {
 	mySprite.Render();
+	if( myState == PLAYERSTATE_PLAYING )
+	{
+		
+	}
+	else if( myState == PLAYERSTATE_INVENTORY )
+	{
+		myInventory.Render();
+	}
 }
 
 void Player::Movement( const float aDelta )
@@ -88,10 +122,9 @@ void Player::Movement( const float aDelta )
 		velocity.y -= physUnitsPerSecond;
 	}
 	myBody->SetLinearVelocity( b2Vec2( velocity.x, velocity.y ) );
-
-	const float clampRadius = 150.f;
+	 
+	const float clampRadius = 150.f; 
 	const b2Vec2& physPos = myBody->GetPosition();
 	Vector2f worldPos(physPos.x * PTM_RATIO, ( physPos.y * PTM_RATIO ) - 40);
-	myPreviousPosition = myPosition;
 	myPosition = worldPos;
 }

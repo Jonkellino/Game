@@ -12,7 +12,7 @@ App::App(void)
 	myFPSText.Data().hotspot = Vector2f(0,0);
 	myFPSText.Data().depth = -1000.f;
 
-	myCamera.Init(static_cast<Vector2f>(Engine::GetInstance()->GetWindowSize()));
+	myCamera.Init(static_cast<Vector2f>(Engine::GetInstance()->GetWindowSize())); 
 	b2World* currentWorld = myPhysics.GetWorld();
 
 	myEnemy.Init(currentWorld);
@@ -33,7 +33,6 @@ bool App::Logic( const float aDelta )
 		return true;
 	}
 	RenderFPS( aDelta );
-	Update( aDelta );
 
 	static const float physicsFps = 30;
 	static const float timeStep = 1 / physicsFps;
@@ -42,11 +41,12 @@ bool App::Logic( const float aDelta )
 	while( physicsTimer >= timeStep )
 	{
 		physicsTimer -= timeStep;
-		FixedUpdate( timeStep );
 		myPhysics.Step( timeStep );
+		FixedUpdate( timeStep );
 	}
-
-	Render();
+	 
+	Render(); 
+	Update( aDelta ); 
 
 	return false;
 }

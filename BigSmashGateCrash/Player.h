@@ -1,8 +1,11 @@
 #pragma once
 
+#include <array>
+#include <functional>
 #include "Camera.h"
 #include "Sprite.h"
 #include "Box2D.h"
+#include "Inventory.h"
 
 class b2Body;
 
@@ -21,9 +24,16 @@ private:
 	void Movement( const float aDelta );
 
 private:
+	enum PLAYERSTATES
+	{
+		PLAYERSTATE_PLAYING,
+		PLAYERSTATE_INVENTORY,
+		PLAYERSTATE_COUNT,
+	} myState;
 
+private:
 	b2Body* myBody;
 	Vector2f myPosition;
-	Vector2f myPreviousPosition;
 	Sprite mySprite;
+	Inventory myInventory;
 };
