@@ -14,12 +14,14 @@ App::App(void)
 
 	myCamera.Init(static_cast<Vector2f>(Engine::GetInstance()->GetWindowSize()));
 
+	/*
 	myLineTestBuffer = new SDL_Point[5]; //BUGG, MEMLEAK 
 	for(int i = 0; i < 5; ++i) 
 	{
 		myLineTestBuffer[i].x = rand()% 1680;
 		myLineTestBuffer[i].y = rand()% 1080;
 	}
+	*/
 
 	b2World* currentWorld = myPhysics.GetWorld();
 
