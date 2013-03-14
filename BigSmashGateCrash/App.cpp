@@ -62,11 +62,14 @@ void App::RenderFPS(const float aDelta)
 void App::Update( const float aDelta )
 {
 	myPlayer.Update( aDelta, myCamera );
+	myEnemy.MoveTowards(Vector2f(512,512));
+	myEnemy.Update(aDelta);
 }
 
 void App::FixedUpdate( const float aDelta )
 {
 	myPlayer.FixedUpdate(aDelta);
+	myEnemy.FixedUpdate(aDelta);
 }
 
 void App::Render()

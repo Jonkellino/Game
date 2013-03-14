@@ -55,10 +55,10 @@ void Enemy::FixedUpdate(const float aDelta)
 	const Vector2f position = Vector2f(myBody->GetPosition().x, myBody->GetPosition().y);
 	const Vector2f toTarget = myMoveTarget - position;
 
-	const float arrivedRadius = 25.f;
+	const float arrivedRadius = 25.f / PTM_RATIO;
 	if(toTarget.LengthSquared() > arrivedRadius * arrivedRadius)
 	{
-		const float physUnitsPerSecond = 250.f * aDelta;
+		const float physUnitsPerSecond = 200.f * aDelta;
 		const Vector2f toTargetNormal = toTarget.GetNormalized();
 		b2Vec2 velocity(toTargetNormal.x, toTargetNormal.y);
 		velocity *= physUnitsPerSecond;
