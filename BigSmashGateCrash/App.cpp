@@ -59,7 +59,6 @@ bool App::Logic( const float aDelta )
 		return true;
 	}
 	RenderFPS( aDelta );
-	Update( aDelta );
 
 	static const float physicsFps = 30;
 	static const float timeStep = 1 / physicsFps;
@@ -68,11 +67,12 @@ bool App::Logic( const float aDelta )
 	while( physicsTimer >= timeStep )
 	{
 		physicsTimer -= timeStep;
-		FixedUpdate( timeStep );
 		myPhysics.Step( timeStep );
+		FixedUpdate( timeStep );
 	}
 
-	myPlayer.Update( aDelta, myCamera );
+	Update( aDelta );
+
 	myMap.Render( myCamera );
 	myPlayer.Render();
 
@@ -101,6 +101,7 @@ void App::RenderFPS(const float aDelta)
 
 void App::Update( const float aDelta )
 {
+	myPlayer.Update( aDelta, myCamera );
 }
 
 void App::FixedUpdate( const float aDelta )
