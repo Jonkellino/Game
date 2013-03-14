@@ -90,13 +90,6 @@ void Player::Movement( const float aDelta )
 	myBody->SetLinearVelocity( b2Vec2( velocity.x, velocity.y ) );
 
 	const float clampRadius = 150.f;
-	myOffsetVector += (myPosition - myPreviousPosition );
-	if(myOffsetVector.LengthSquared() > clampRadius*clampRadius)
-	{	
-		myOffsetVector.Normalize();
-		myOffsetVector *= clampRadius-0.5f; // Dirty epsilon hack to keep it from inf-clamping.
-	}
-	myOffsetVector *= 0.95f;
 	const b2Vec2& physPos = myBody->GetPosition();
 	Vector2f worldPos(physPos.x * PTM_RATIO, ( physPos.y * PTM_RATIO ) - 40);
 	myPreviousPosition = myPosition;

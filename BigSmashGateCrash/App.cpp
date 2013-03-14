@@ -13,34 +13,10 @@ App::App(void)
 	myFPSText.Data().depth = -1000.f;
 
 	myCamera.Init(static_cast<Vector2f>(Engine::GetInstance()->GetWindowSize()));
-
-	myLineTestBuffer = new SDL_Point[5]; //BUGG, MEMLEAK 
-	for(int i = 0; i < 5; ++i) 
-	{
-		myLineTestBuffer[i].x = rand()% 1680;
-		myLineTestBuffer[i].y = rand()% 1080;
-	}
-
 	b2World* currentWorld = myPhysics.GetWorld();
 
+	myEnemy.Init(currentWorld);
 	myPlayer.Init(currentWorld);
-
-	//b2CircleShape* shape = new b2CircleShape();
-	//shape->m_radius =  100 / 2.0f / PTM_RATIO;
-
-	//b2Filter filter;
-
-	//b2FixtureDef fixtureDef;
-	//fixtureDef.shape = shape;
-	//fixtureDef.filter = filter;
-
-	//b2BodyDef bodyDef;
-
-	//b2Body* body = currentWorld->CreateBody( &bodyDef );
-	//body->CreateFixture( &fixtureDef );
-	//body->SetTransform( b2Vec2( 100 / PTM_RATIO, 100 / PTM_RATIO ), 0 );
-	//delete fixtureDef.shape;
-
 	myMap.Init(currentWorld);
 }
 
@@ -70,21 +46,7 @@ bool App::Logic( const float aDelta )
 		myPhysics.Step( timeStep );
 	}
 
-	myPlayer.Update( aDelta, myCamera );
-	myMap.Render( myCamera );
-	myPlayer.Render();
-
-	EngineMessage message;
-	message.myType = EngineMessageType::LINE_ARRAY_RENDER;
-	message.lineArrayRender.verticeCount = 5;
-	message.lineArrayRender.myVertices = myLineTestBuffer;
-	message.lineArrayRender.myColor = ConstructColor(255, 255, 255, 255);
-	//EngineInstance->NotifyMessage(message);
-
-#ifdef _DEBUG
-	myPhysics.SetDrawCamera(&myCamera);
-	myPhysics.DrawDebug();
-#endif
+	Render();
 
 	return false;
 }
@@ -99,9 +61,21 @@ void App::RenderFPS(const float aDelta)
 
 void App::Update( const float aDelta )
 {
+	myPlayer.Update( aDelta, myCamera );
 }
 
 void App::FixedUpdate( const float aDelta )
 {
 	myPlayer.FixedUpdate(aDelta);
+}
+
+void App::Render()
+{
+	myMap.Render( myCamera );
+	myPlayer.Render();
+
+#ifdef _DEBUG
+	myPhysics.SetDrawCamera(&myCamera);
+	myPhysics.DrawDebug();
+#endif
 }

@@ -5,6 +5,8 @@
 #include "Player.h"
 #include "Text.h"
 #include "Map.h"
+#include "Enemy.h"
+
 
 class App
 {
@@ -19,16 +21,15 @@ private:
 
 	void Update( const float aDelta );
 	void FixedUpdate( const float aDelta );
+	void Render();
 
 private:
 	Text myFPSText;
 	char* myFPSTextBuffer;
 
 	PhysicsWrapper myPhysics;
-
+	Enemy myEnemy; // TestTempLulz
 	Camera myCamera;
 	Player myPlayer;
-	Map myMap;
-
-	SDL_Point* myLineTestBuffer;
+	Map myMap; 
 };
