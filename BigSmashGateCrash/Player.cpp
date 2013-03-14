@@ -8,6 +8,7 @@ Player::Player(void)
 	myState = PLAYERSTATE_PLAYING;
 	myPosition = Vector2f( 300.0f, 200.0f );
 	mySprite.Load( "data/graphics/player/player.png" );
+	myInventory.myEquipment = &myEquipment;
 }
 
 Player::~Player(void)

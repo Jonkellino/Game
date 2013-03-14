@@ -29,6 +29,10 @@
     <ClCompile Include="Enemy.cpp">
       <Filter>Enemy</Filter>
     </ClCompile>
+    <ClCompile Include="Equipment.cpp">
+      <Filter>Player\Equipment</Filter>
+    </ClCompile>
+    <ClCompile Include="Handgun.cpp" />
   </ItemGroup>
   <ItemGroup>
     <Filter Include="Application">
@@ -45,6 +49,12 @@
     </Filter>
     <Filter Include="Player\Inventory">
       <UniqueIdentifier>{296c057e-eb26-4445-805d-870079f755c4}</UniqueIdentifier>
+    </Filter>
+    <Filter Include="Player\Equipment">
+      <UniqueIdentifier>{dbc6e117-e754-4efe-a26b-9d5ad9ef20a1}</UniqueIdentifier>
+    </Filter>
+    <Filter Include="Weapons">
+      <UniqueIdentifier>{0ea54784-4125-4191-9420-00b7a2167bb2}</UniqueIdentifier>
     </Filter>
   </ItemGroup>
   <ItemGroup>
@@ -79,6 +89,16 @@
     </ClInclude>
     <ClInclude Include="Enemy.h">
       <Filter>Enemy</Filter>
+    </ClInclude>
+    <ClInclude Include="Equipment.h">
+      <Filter>Player\Equipment</Filter>
+    </ClInclude>
+    <ClInclude Include="Equipable.h">
+      <Filter>Player\Equipment</Filter>
+    </ClInclude>
+    <ClInclude Include="Handgun.h" />
+    <ClInclude Include="Inventable.h">
+      <Filter>Player\Inventory</Filter>
     </ClInclude>
   </ItemGroup>
 </Project>
