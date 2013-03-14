@@ -61,10 +61,13 @@ void Player::Update( const float aDelta, Camera& aCamera )
 		if( KeyboardInput->KeyPressed( SDL_SCANCODE_I ) )
 		{
 			myState = PLAYERSTATE_INVENTORY;
+			myBody->SetLinearVelocity( b2Vec2( 0, 0 ) );
 		}
 	}
 	else if( myState == PLAYERSTATE_INVENTORY )
 	{
+		myInventory.Update( aDelta );
+
 		if( KeyboardInput->KeyPressed( SDL_SCANCODE_I ) )
 		{
 			myState = PLAYERSTATE_PLAYING;
@@ -80,13 +83,21 @@ void Player::FixedUpdate(const float aDelta)
 	}
 	else if( myState == PLAYERSTATE_INVENTORY )
 	{
-		myBody->SetLinearVelocity( b2Vec2( 0, 0 ) );
+		
 	}
 }
 
 void Player::Render()
 {
 	mySprite.Render();
+	if( myState == PLAYERSTATE_PLAYING )
+	{
+		
+	}
+	else if( myState == PLAYERSTATE_INVENTORY )
+	{
+		myInventory.Render();
+	}
 }
 
 void Player::Movement( const float aDelta )

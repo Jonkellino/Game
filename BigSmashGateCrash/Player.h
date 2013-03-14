@@ -5,6 +5,7 @@
 #include "Camera.h"
 #include "Sprite.h"
 #include "Box2D.h"
+#include "Inventory.h"
 
 class b2Body;
 
@@ -34,4 +35,5 @@ private:
 	b2Body* myBody;
 	Vector2f myPosition;
 	Sprite mySprite;
+	Inventory myInventory;
 };
