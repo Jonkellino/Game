@@ -22,14 +22,11 @@
     </ClCompile>
     <ClCompile Include="DebugDraw.cpp">
       <Filter>Physics</Filter>
-    </ClCompile>
-<<<<<<< HEAD
-    <ClCompile Include="Enemy.cpp" />
-=======
+    </ClCompile> 
+    <ClCompile Include="Enemy.cpp" /> 
     <ClCompile Include="Inventory.cpp">
       <Filter>Player\Inventory</Filter>
-    </ClCompile>
->>>>>>> origin/master
+    </ClCompile> 
   </ItemGroup>
   <ItemGroup>
     <Filter Include="Application">
@@ -40,14 +37,11 @@
     </Filter>
     <Filter Include="Player">
       <UniqueIdentifier>{0024f614-0998-4c45-924e-7889d8da28a7}</UniqueIdentifier>
-    </Filter>
-<<<<<<< HEAD
+    </Filter> 
     <Filter Include="Enemy">
-      <UniqueIdentifier>{282e20f0-fd58-4d8e-869f-1f7574e4b0a5}</UniqueIdentifier>
-=======
+      <UniqueIdentifier>{282e20f0-fd58-4d8e-869f-1f7574e4b0a5}</UniqueIdentifier> 
     <Filter Include="Player\Inventory">
-      <UniqueIdentifier>{296c057e-eb26-4445-805d-870079f755c4}</UniqueIdentifier>
->>>>>>> origin/master
+      <UniqueIdentifier>{296c057e-eb26-4445-805d-870079f755c4}</UniqueIdentifier> 
     </Filter>
   </ItemGroup>
   <ItemGroup>
@@ -76,13 +70,10 @@
     </ClInclude>
     <ClInclude Include="DebugDraw.h">
       <Filter>Physics</Filter>
-    </ClInclude>
-<<<<<<< HEAD
-    <ClInclude Include="Enemy.h" />
-=======
+    </ClInclude> 
+    <ClInclude Include="Enemy.h" /> 
     <ClInclude Include="Inventory.h">
       <Filter>Player\Inventory</Filter>
-    </ClInclude>
->>>>>>> origin/master
+    </ClInclude> 
   </ItemGroup>
 </Project>
