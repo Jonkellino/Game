@@ -3,6 +3,8 @@
 #include "Keyboard.h"
 #include "Engine.h"
 
+#include "Handgun.h"
+
 App::App(void)
 {
 	myFPSTextBuffer = new char[16];
@@ -18,6 +20,9 @@ App::App(void)
 	myEnemy.Init(currentWorld);
 	myPlayer.Init(currentWorld);
 	myMap.Init(currentWorld);
+
+	Handgun* test = new Handgun();
+	myPlayer.GetInventory().AddItem( test );
 }
 
 App::~App(void)

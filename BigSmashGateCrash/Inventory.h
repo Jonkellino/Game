@@ -15,10 +15,12 @@ public:
 	void Update( const float aDelta );
 	void Render();
 
+	bool AddItem( Inventable* anItem );
+
 private:
 	Equipment* myEquipment;
 	Sprite myBackground;
 
-	static const unsigned short myNumberOfItemSlots = 8;
+	static const unsigned char myNumberOfItemSlots = 8;
 	std::array< Inventable*, myNumberOfItemSlots > mySlots;
 };

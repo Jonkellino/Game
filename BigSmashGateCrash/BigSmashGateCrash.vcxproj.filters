@@ -32,7 +32,9 @@
     <ClCompile Include="Equipment.cpp">
       <Filter>Player\Equipment</Filter>
     </ClCompile>
-    <ClCompile Include="Handgun.cpp" />
+    <ClCompile Include="Handgun.cpp">
+      <Filter>Weapons</Filter>
+    </ClCompile>
   </ItemGroup>
   <ItemGroup>
     <Filter Include="Application">
@@ -93,12 +95,11 @@
     <ClInclude Include="Equipment.h">
       <Filter>Player\Equipment</Filter>
     </ClInclude>
-    <ClInclude Include="Equipable.h">
-      <Filter>Player\Equipment</Filter>
-    </ClInclude>
-    <ClInclude Include="Handgun.h" />
     <ClInclude Include="Inventable.h">
       <Filter>Player\Inventory</Filter>
+    </ClInclude>
+    <ClInclude Include="Handgun.h">
+      <Filter>Weapons</Filter>
     </ClInclude>
   </ItemGroup>
 </Project>

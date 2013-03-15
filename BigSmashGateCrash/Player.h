@@ -21,6 +21,9 @@ public:
 	void FixedUpdate(const float aDelta);
 	void Render();
 
+public:
+	Inventory& GetInventory(){ return myInventory; }
+
 private:
 	void Movement( const float aDelta );
 

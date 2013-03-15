@@ -1,9 +1,8 @@
 #pragma once
 
 #include "Inventable.h"
-#include "Equipable.h"
 
-class Handgun : public Inventable, public Equipable
+class Handgun : public Inventable
 {
 public:
 	Handgun(void);

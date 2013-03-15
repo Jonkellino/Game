@@ -98,7 +98,6 @@
     <ClInclude Include="Chunk.h" />
     <ClInclude Include="DebugDraw.h" />
     <ClInclude Include="Enemy.h" />
-    <ClInclude Include="Equipable.h" />
     <ClInclude Include="Equipment.h" />
     <ClInclude Include="Handgun.h" />
     <ClInclude Include="Inventable.h" />
