@@ -4,6 +4,7 @@
 #include "Engine.h"
 
 #include "Handgun.h"
+#include "Fist.h"
 
 App::App(void)
 {
@@ -21,7 +22,24 @@ App::App(void)
 	myPlayer.Init(currentWorld);
 	myMap.Init(currentWorld);
 
-	for( unsigned int index = 0; index < 10; index++ )
+	for( unsigned int index = 0; index < 5; index++ )
+	{
+		Handgun* test = new Handgun();
+		bool gotEquipped = myPlayer.GetInventory().AddItem( test );
+		if( !gotEquipped )
+		{
+			delete test;
+		}
+	}
+
+	Fist* test = new Fist();
+	bool gotEquipped = myPlayer.GetInventory().AddItem( test );
+	if( !gotEquipped )
+	{
+		delete test;
+	}
+
+	for( unsigned int index = 0; index < 5; index++ )
 	{
 		Handgun* test = new Handgun();
 		bool gotEquipped = myPlayer.GetInventory().AddItem( test );

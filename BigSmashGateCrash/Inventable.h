@@ -5,7 +5,12 @@
 class Inventable
 {
 public:
-	Inventable(){};
+	Inventable()
+	{
+#ifdef _DEBUG
+		myInventoryIcon.Load( "data/graphics/errorSprite.png" );
+#endif
+	};
 	virtual ~Inventable(){};
 
 public:

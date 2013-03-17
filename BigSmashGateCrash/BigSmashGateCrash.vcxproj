@@ -85,6 +85,7 @@
     <ClCompile Include="DebugDraw.cpp" />
     <ClCompile Include="Enemy.cpp" />
     <ClCompile Include="Equipment.cpp" />
+    <ClCompile Include="Fist.cpp" />
     <ClCompile Include="Handgun.cpp" />
     <ClCompile Include="Inventory.cpp" />
     <ClCompile Include="main.cpp" />
@@ -99,6 +100,7 @@
     <ClInclude Include="DebugDraw.h" />
     <ClInclude Include="Enemy.h" />
     <ClInclude Include="Equipment.h" />
+    <ClInclude Include="Fist.h" />
     <ClInclude Include="Handgun.h" />
     <ClInclude Include="Inventable.h" />
     <ClInclude Include="Inventory.h" />

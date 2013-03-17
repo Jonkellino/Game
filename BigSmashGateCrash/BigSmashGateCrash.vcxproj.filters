@@ -35,6 +35,9 @@
     <ClCompile Include="Handgun.cpp">
       <Filter>Weapons</Filter>
     </ClCompile>
+    <ClCompile Include="Fist.cpp">
+      <Filter>Weapons</Filter>
+    </ClCompile>
   </ItemGroup>
   <ItemGroup>
     <Filter Include="Application">
@@ -99,6 +102,9 @@
       <Filter>Player\Inventory</Filter>
     </ClInclude>
     <ClInclude Include="Handgun.h">
+      <Filter>Weapons</Filter>
+    </ClInclude>
+    <ClInclude Include="Fist.h">
       <Filter>Weapons</Filter>
     </ClInclude>
   </ItemGroup>
