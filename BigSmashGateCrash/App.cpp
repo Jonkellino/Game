@@ -21,8 +21,15 @@ App::App(void)
 	myPlayer.Init(currentWorld);
 	myMap.Init(currentWorld);
 
-	Handgun* test = new Handgun();
-	myPlayer.GetInventory().AddItem( test );
+	for( unsigned int index = 0; index < 10; index++ )
+	{
+		Handgun* test = new Handgun();
+		bool gotEquipped = myPlayer.GetInventory().AddItem( test );
+		if( !gotEquipped )
+		{
+			delete test;
+		}
+	}
 }
 
 App::~App(void)

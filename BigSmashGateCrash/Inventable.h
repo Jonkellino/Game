@@ -1,5 +1,7 @@
 #pragma once
 
+#include "Sprite.h"
+
 class Inventable
 {
 public:
@@ -14,4 +16,6 @@ public:
 		ITEMTYPE_USEABLE,
 		ITEMTYPE_COUNT,
 	};
+
+	Sprite myInventoryIcon;
 };

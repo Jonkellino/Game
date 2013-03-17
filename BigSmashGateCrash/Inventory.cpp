@@ -25,15 +25,26 @@ void Inventory::Update( const float aDelta )
 void Inventory::Render()
 {
 	myBackground.Render();
+	for( unsigned int index = 0; index < myNumberOfItemSlots; index++ )
+	{
+		if( mySlots[index] != NULL )
+		{
+			mySlots[index]->myInventoryIcon.Render();
+		}
+	}
 }
 
 bool Inventory::AddItem( Inventable* anItem )
 {
 	for( unsigned int index = 0; index < myNumberOfItemSlots; index++ )
 	{
-		if( mySlots[index] != NULL )
+		if( mySlots[index] == NULL )
 		{
 			mySlots[index] = anItem;
+			unsigned char xOffset = index%2;
+			unsigned char yOffset = index/2;
+			mySlots[index]->myInventoryIcon.Data().pos = Vector2f( 850 + 120 * xOffset, 350 + 100 * yOffset );
+			mySlots[index]->myInventoryIcon.Data().depth = -1.2f;
 			return true;
 		}
 	}
