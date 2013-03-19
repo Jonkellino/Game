@@ -1,0 +1,17 @@
+// See README.txt for information and build instructions.
+
+package MapData;
+
+//option java_package = "com.example.tutorial";
+//option java_outer_classname = "AddressBookProtos";
+
+message MapData {
+  optional float hello = 1;
+}
+
+/*
+// Our address book file is just one of these.
+message AddressBook {
+  repeated Person person = 1;
+}
+*/
