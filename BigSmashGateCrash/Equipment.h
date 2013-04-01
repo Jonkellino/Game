@@ -6,8 +6,15 @@
 class Equipment
 {
 public:
+	enum EQUIPSLOTS;
+
+public:
 	Equipment(void);
 	~Equipment(void);
+
+	void Render();
+
+	void Use( EQUIPSLOTS aSlot );
 
 public:
 	enum EQUIPSLOTS
@@ -19,4 +26,5 @@ public:
 
 private:
 	std::array< Inventable*, EQUIPSLOT_COUNT > mySlots;
+	Inventable* myFist;
 };

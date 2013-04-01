@@ -2,9 +2,13 @@
 
 Handgun::Handgun(void)
 {
-	myInventoryIcon.Load( "data/graphics/weapons/handgun/handgunIcon.png" );
+	myInventoryIcon.Load( "data/graphics/inventory/icons/handgunIcon.png" );
 }
 
 Handgun::~Handgun(void)
+{
+}
+
+void Handgun::Use()
 {
 }

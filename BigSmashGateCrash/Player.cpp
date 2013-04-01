@@ -8,6 +8,7 @@ Player::Player(void)
 	myState = PLAYERSTATE_PLAYING;
 	myPosition = Vector2f( 300.0f, 200.0f );
 	mySprite.Load( "data/graphics/player/player.png" );
+	mySprite.Data().depth = -1.0f;
 	myInventory.myEquipment = &myEquipment;
 }
 
@@ -57,12 +58,20 @@ void Player::Update( const float aDelta, Camera& aCamera )
 		const Vector2i screenSize = Engine::GetInstance()->GetWindowSize();
 		aCamera.SetPosition( myPosition - screenSize / 2); 
 		mySprite.Data().pos = screenSize / 2;
-		mySprite.Data().depth = -1.0f;
 
 		if( KeyboardInput->KeyPressed( SDL_SCANCODE_I ) )
 		{
 			myState = PLAYERSTATE_INVENTORY;
 			myBody->SetLinearVelocity( b2Vec2( 0, 0 ) );
+		}
+
+		if( KeyboardInput->KeyPressed( SDL_SCANCODE_O ) )//BUGG should be M1
+		{
+			myEquipment.Use( myEquipment.EQUIPSLOT_WEAPON );
+		}
+		if( KeyboardInput->KeyPressed( SDL_SCANCODE_P ) )//BUGG should be M2
+		{
+			myEquipment.Use( myEquipment.EQUIPSLOT_USEABLE );
 		}
 	}
 	else if( myState == PLAYERSTATE_INVENTORY )
@@ -98,6 +107,7 @@ void Player::Render()
 	else if( myState == PLAYERSTATE_INVENTORY )
 	{
 		myInventory.Render();
+		myEquipment.Render();
 	}
 }
 

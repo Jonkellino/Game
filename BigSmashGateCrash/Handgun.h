@@ -7,4 +7,6 @@ class Handgun : public Inventable
 public:
 	Handgun(void);
 	~Handgun(void);
+
+	void Use();
 };

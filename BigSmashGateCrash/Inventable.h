@@ -13,6 +13,8 @@ public:
 	};
 	virtual ~Inventable(){};
 
+	virtual void Use() = 0;
+
 public:
 	enum ITEMTYPE
 	{

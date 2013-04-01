@@ -7,4 +7,6 @@ class Fist : public Inventable
 public:
 	Fist(void);
 	~Fist(void);
+
+	void Use();
 };
